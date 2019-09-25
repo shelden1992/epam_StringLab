@@ -5,5 +5,5 @@ import org.courses.entities.Sentence;
 import java.util.List;
 
 public interface SwappingFirstAndLastWord {
-    public void swapFirstAndLastWord(List<Sentence> sentences);
+    List<Sentence> swapFirstAndLastWord(List<Sentence> sentences);
 }

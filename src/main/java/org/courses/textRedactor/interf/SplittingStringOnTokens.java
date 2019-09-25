@@ -4,6 +4,6 @@ import org.courses.entities.Sentence;
 
 import java.util.List;
 
-public interface DoingToUpperCase {
-    List<Sentence> toUpperCaseFirstChar(List<Sentence> sentences);
+public interface SplittingStringOnTokens {
+    List<Sentence> splitStringOnTokens(List<String> sentences);
 }

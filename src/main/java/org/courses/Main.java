@@ -14,9 +14,10 @@ public class Main {
         String textFromFile = new ParserTextFromFile().parseTextFromFile();
         String textFromFileToLowerCaseAndDeleteDoubleSpace = textRedactor.replaceDoubleSpaceAndTab(textFromFile.toLowerCase());
         List<String> sentenceList = textRedactor.splitTextOnSentence(textFromFileToLowerCaseAndDeleteDoubleSpace);
-        List<Sentence> list3 = textRedactor.splitSentencesOnTokens(sentenceList);
-        textRedactor.swapFirstAndLastWord(list3);
-        textRedactor.toUpperCaseFirstChar(list3);
+        List<Sentence> splitSentenceList = textRedactor.splitStringOnTokens(sentenceList);
+        List<Sentence> swapSentenceList = textRedactor.swapFirstAndLastWord(splitSentenceList);
+        List<Sentence> upperCaseSentenceList = textRedactor.toUpperCaseFirstChar(swapSentenceList);
+        System.out.println(upperCaseSentenceList);
     }
 }
 

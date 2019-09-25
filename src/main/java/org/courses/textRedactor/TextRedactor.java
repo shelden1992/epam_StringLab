@@ -9,22 +9,32 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class TextRedactor implements DoingToUpperCase, ReplacingDoubleSpaceAndTab, SplittingTextOnSentence, SplittingSentencesOnTokens, SwappingFirstAndLastWord {
+public class TextRedactor implements DoingToUpperCase, ReplacingDoubleSpaceAndTab, SplittingTextOnSentence, SplittingStringOnTokens, SwappingFirstAndLastWord {
 
     @Override
     public String replaceDoubleSpaceAndTab(String text) {
-        return text.replace("  ", " ").replace("\t", " ");
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("Text not valid");
+        }
+        return text.replaceAll(" {2}", " ").replaceAll("\t", "");
     }
 
     @Override
     public List<String> splitTextOnSentence(String text) {
+        if (text == null || text.isEmpty()) {
+            throw new IllegalArgumentException("Text not valid");
+        }
         String[] split = text.split("(?<=[.?!])\\s+");
         return Arrays.asList(split);
     }
 
     @Override
-    public void toUpperCaseFirstChar(List<Sentence> sentences) {
-        for (Sentence sentence : sentences
+    public List<Sentence> toUpperCaseFirstChar(List<Sentence> sentences) {
+        List<Sentence> sentenceList = new ArrayList<>(sentences);
+        if (sentences == null || sentences.isEmpty()) {
+            throw new IllegalArgumentException("List is empty or null");
+        }
+        for (Sentence sentence : sentenceList
         ) {
             List<Token> tokens = sentence.getList();
             tokens.forEach(token -> {
@@ -34,10 +44,14 @@ public class TextRedactor implements DoingToUpperCase, ReplacingDoubleSpaceAndTa
                 stringList.set(0, String.valueOf(chars));
             });
         }
+        return sentenceList;
     }
 
     @Override
-    public List<Sentence> splitSentencesOnTokens(List<String> sentences) {
+    public List<Sentence> splitStringOnTokens(List<String> sentences) {
+        if (sentences == null || sentences.isEmpty()) {
+            throw new IllegalArgumentException("List is empty or null");
+        }
         List<Sentence> sentenceList = new ArrayList<>();
         for (String sentence : sentences
         ) {
@@ -52,10 +66,15 @@ public class TextRedactor implements DoingToUpperCase, ReplacingDoubleSpaceAndTa
     }
 
     @Override
-    public void swapFirstAndLastWord(List<Sentence> sentences) {
-        for (Sentence sentence : sentences
+    public List<Sentence> swapFirstAndLastWord(List<Sentence> sentences) {
+        if (sentences == null || sentences.isEmpty()) {
+            throw new IllegalArgumentException("List is empty or null");
+        }
+        List<Sentence> sentenceList = new ArrayList<>(sentences);
+        for (Sentence sentence : sentenceList
         ) {
             sentence.getList().forEach(token -> Collections.swap(token.getStringList(), 0, token.getStringList().size() - 2));
         }
+        return sentenceList;
     }
 }
