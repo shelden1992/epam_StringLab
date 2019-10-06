@@ -1,10 +1,9 @@
 package org.courses.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sentence {
-    private List<Token> list = new ArrayList<>();
+    private List<Token> list;
 
     public Sentence(List<Token> list) {
         this.list = list;
@@ -21,7 +20,7 @@ public class Sentence {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        list.forEach(f -> stringBuilder.append(f.getStringList()));
+        list.forEach(stringBuilder::append);
         return stringBuilder.toString();
     }
 }

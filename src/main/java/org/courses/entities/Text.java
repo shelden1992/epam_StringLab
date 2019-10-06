@@ -1,10 +1,9 @@
 package org.courses.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Text {
-    private List<Sentence> list = new ArrayList<>();
+    private List<Sentence> list;
 
     public Text(List<Sentence> list) {
         this.list = list;
@@ -20,7 +19,9 @@ public class Text {
 
     @Override
     public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        list.forEach(stringBuilder::append);
 
-        return list.toString();
+        return stringBuilder.toString();
     }
 }

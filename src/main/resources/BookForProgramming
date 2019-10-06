@@ -1,4 +1,4 @@
-The underscore is considered an inner-word character.
+The   underscore is considered an inner-word character.
 Replace \w, if you don't want that.
 This, will not work with (single) quotes in the string.
 Put, any additional punctuation marks you want to use in the right half of the regular expression!
