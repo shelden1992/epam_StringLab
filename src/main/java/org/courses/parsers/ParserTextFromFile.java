@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class ParserTextFromFile {
-    private static Logger logger = Logger.getLogger(ParserTextFromFile.class);
+    private static Logger LOG = Logger.getLogger(ParserTextFromFile.class);
     private static Path pathRead = Paths.get("/Users/macuser/Desktop/projects/epamEducation/epam_StringLaboratory/src/main/resources/BookForProgramming");
 
     public String parseTextFromFile() {
@@ -18,7 +18,7 @@ public class ParserTextFromFile {
         try {
             text = new String(Files.readAllBytes(pathRead), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            logger.error(e);
+            LOG.error(e);
 
         }
         return text;
