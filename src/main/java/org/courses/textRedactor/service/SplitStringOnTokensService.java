@@ -17,19 +17,17 @@ public class SplitStringOnTokensService implements SplittingStringOnTokens {
             throw new IllegalArgumentException("List is empty or null");
         }
         List<Sentence> sentenceList = new ArrayList<>();
-        for (String sentence : sentences
-        ) {
-            String[] split = sentence.split("\\b");
-            List<String> stringList = Arrays.asList(split);
+        sentences.forEach(sentence -> {
             ArrayList<Char> chars = new ArrayList<>();
-            stringList.forEach(string -> {
-                Arrays.stream(string.split("")).forEach(f -> chars.add(new Char(f)));
-            });
-            List<Token> arrayList = new ArrayList() {{
+            Arrays.stream(sentence.split("\\b"))
+                    .forEach(string -> {
+                        Arrays.asList(string.split(""))
+                                .forEach(f -> chars.add(new Char(f)));
+                    });
+            sentenceList.add(new Sentence(new ArrayList() {{
                 add((new Token(chars)));
-            }};
-            sentenceList.add(new Sentence(arrayList));
-        }
+            }}));
+        });
         return sentenceList;
     }
 }
