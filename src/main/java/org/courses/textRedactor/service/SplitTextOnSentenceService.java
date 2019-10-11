@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SplitTextOnSentenceService implements SplittingTextOnSentence {
+    private static final String END_SENTENCE_REGEX = "(?<=[.?!])\\s+";
 
 
     @Override
@@ -13,7 +14,7 @@ public class SplitTextOnSentenceService implements SplittingTextOnSentence {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("Text not valid");
         }
-        String[] split = text.split("(?<=[.?!])\\s+");
+        String[] split = text.split(END_SENTENCE_REGEX);
         return Arrays.asList(split);
     }
 }

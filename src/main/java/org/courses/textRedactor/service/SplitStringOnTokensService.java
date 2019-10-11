@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SplitStringOnTokensService implements SplittingStringOnTokens {
+    private static final String CHAR_REGEX = "\\b";
 
     @Override
     public List<Sentence> splitStringOnTokens(List<String> sentences) {
@@ -18,8 +19,8 @@ public class SplitStringOnTokensService implements SplittingStringOnTokens {
         }
         List<Sentence> sentenceList = new ArrayList<>();
         sentences.forEach(sentence -> {
-            ArrayList<Char> chars = new ArrayList<>();
-            Arrays.stream(sentence.split("\\b"))
+            List<Char> chars = new ArrayList<>();
+            Arrays.stream(sentence.split(CHAR_REGEX))
                     .forEach(string -> {
                         Arrays.asList(string.split(""))
                                 .forEach(f -> chars.add(new Char(f)));
