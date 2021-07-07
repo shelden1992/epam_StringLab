@@ -1,0 +1,6 @@
+2019-10-06 21:33:56 ERROR ParserTextFromFile:22 - java.nio.file.NoSuchFileException: /Users/macuser/Desktop/projects/epamEducation/epam_StringLaboratory/src/main/resources/BookForProgrammin
+2019-10-06 21:34:12 ERROR ParserTextFromFile:22 - java.nio.file.NoSuchFileException: /Users/macuser/Desktop/projects/epamEducation/epam_StringLaboratory/src/main/resources/BookForProgrammin
+2019-10-06 21:44:53 ERROR ParserTextFromFile:21 - java.nio.file.NoSuchFileException: /Users/macuser/Desktop/projects/epamEducation/epam_StringLaboratory/src/main/resources/BookForProgrammin
+2019-10-06 21:44:53 ERROR ReplacingDoubleSpaceAndTab:12 - java.lang.IllegalArgumentException: Text not valid
+2019-10-06 21:45:06 ERROR ParserTextFromFile:21 - java.nio.file.NoSuchFileException: /Users/macuser/Desktop/projects/epamEducation/epam_StringLaboratory/src/main/resources/BookForProgrammin
+2019-10-06 21:45:06 ERROR ReplacingDoubleSpaceAndTab:12 - java.lang.IllegalArgumentException: Text not valid
